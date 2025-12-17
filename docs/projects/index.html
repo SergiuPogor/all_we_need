@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en" class="text-[16px]">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>All We Need — curated for devs</title>
+    <meta name="description" content="A premium community-curated collection of developer tools and hidden gems." />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        neutral: {
+                            950: '#050505',
+                            900: '#0a0a0a',
+                            800: '#1f1f1f',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- GSAP & Lenis -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+
+    <!-- Custom Styles & Scripts -->
+    <link rel="stylesheet" href="/styles.css">
+    <script defer src="/search.js"></script>
+    <script defer src="/js/animations.js"></script> <!-- Will be copied to docs/js/ -->
+</head>
+
+<body class="bg-neutral-950 text-neutral-100 antialiased selection:bg-white/20">
+
+    <!-- Noise Overlay -->
+    <div class="noise-overlay"></div>
+
+    <!-- HEADER (Initially transparent/hidden logic handled by JS) -->
+    <header id="header" class="fixed top-0 w-full z-50 py-6 transition-all duration-500 mix-blend-difference">
+        <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+            <div class="font-semibold text-lg tracking-tight font-mono cursor-pointer" onclick="window.scrollTo(0,0)">
+                AWN_
+            </div>
+
+            <nav class="hidden md:flex gap-8 text-xs font-mono uppercase tracking-widest text-neutral-400">
+                <a href="/" class="hover:text-white transition-colors duration-300">Home</a>
+                <a href="/projects/" class="hover:text-white transition-colors duration-300">Projects</a>
+                <a href="/leaderboard.html" class="hover:text-white transition-colors duration-300">Leaderboard</a>
+                <a href="https://github.com/ghostshanky/allweneed.github.io" target="_blank"
+                    class="hover:text-white transition-colors duration-300">GitHub</a>
+            </nav>
+
+            <button id="headerSearchBtn"
+                class="opacity-0 invisible w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition-all backdrop-blur-md"
+                aria-label="Search">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8" />
+                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    
+    <section class="max-w-7xl mx-auto px-6 pt-40 pb-10 text-center">
+        <h1 class="text-5xl font-bold tracking-tight mb-4">All Projects</h1>
+        <p class="text-neutral-500 font-mono text-sm uppercase tracking-widest">Curated Resources</p>
+    </section>
+    
+
+    <!-- PROOF OF VALUE (Stats) -->
+    
+
+    <!-- HOW IT WORKS (Narrative) -->
+    
+
+    <!-- TOP CONTRIBUTORS -->
+    
+
+    <!-- PROJECTS GRID -->
+    <section id="projects" class="max-w-7xl mx-auto px-6 py-32 space-y-20 min-h-screen">
+        
+         <div class="mb-32 group/section scroll-mt-24" id="email">
+            <div class="flex items-center justify-between mb-8 border-b border-neutral-900 pb-4">
+                <h3 class="text-xl font-mono uppercase tracking-widest text-neutral-400 flex items-center gap-2">
+                    // email
+                </h3>
+                <button id="btn-email" onclick="window.toggleGroup('email')" class="text-xs uppercase tracking-widest hover:text-white transition">Show Less</button>
+            </div>
+            
+            <div id="email" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 transition-all duration-500 foldable-content" style="max-height: 2000px; opacity: 1;">
+         
+             <a href="/projects/emailnator.html" class="glass-card block p-8 rounded-3xl relative overflow-hidden group reveal-stagger hover:scale-[1.02] transition-transform duration-500">
+                <div class="flex justify-between items-start mb-6">
+                     <img src="/logo.png" class="w-12 h-12 rounded-xl object-cover bg-neutral-900 shadow-lg group-hover:shadow-white/10 transition-all">
+                     <svg class="w-6 h-6 text-neutral-700 group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </div>
+                <h4 class="text-2xl font-bold mb-2 group-hover:text-white transition-colors tracking-tight">Emailnator</h4>
+                <p class="text-neutral-500 text-sm leading-relaxed mb-6 line-clamp-2 h-10">Generate disposable Gmail-style emails</p>
+                
+                <div class="flex items-center justify-between border-t border-white/5 pt-4">
+                    <span class="text-xs font-mono text-neutral-600">By Community</span>
+                    <div class="flex -space-x-2 opacity-50 group-hover:opacity-100 transition-opacity">
+                         
+                    </div>
+                </div>
+             </a>
+             </div></div>
+         <div class="mb-32 group/section scroll-mt-24" id="productivity">
+            <div class="flex items-center justify-between mb-8 border-b border-neutral-900 pb-4">
+                <h3 class="text-xl font-mono uppercase tracking-widest text-neutral-400 flex items-center gap-2">
+                    // productivity
+                </h3>
+                <button id="btn-productivity" onclick="window.toggleGroup('productivity')" class="text-xs uppercase tracking-widest hover:text-white transition">Show Less</button>
+            </div>
+            
+            <div id="productivity" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 transition-all duration-500 foldable-content" style="max-height: 2000px; opacity: 1;">
+         
+             <a href="/projects/emailnator.html" class="glass-card block p-8 rounded-3xl relative overflow-hidden group reveal-stagger hover:scale-[1.02] transition-transform duration-500">
+                <div class="flex justify-between items-start mb-6">
+                     <img src="/logo.png" class="w-12 h-12 rounded-xl object-cover bg-neutral-900 shadow-lg group-hover:shadow-white/10 transition-all">
+                     <svg class="w-6 h-6 text-neutral-700 group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </div>
+                <h4 class="text-2xl font-bold mb-2 group-hover:text-white transition-colors tracking-tight">Emailnator</h4>
+                <p class="text-neutral-500 text-sm leading-relaxed mb-6 line-clamp-2 h-10">Generate disposable Gmail-style emails</p>
+                
+                <div class="flex items-center justify-between border-t border-white/5 pt-4">
+                    <span class="text-xs font-mono text-neutral-600">By Community</span>
+                    <div class="flex -space-x-2 opacity-50 group-hover:opacity-100 transition-opacity">
+                         
+                    </div>
+                </div>
+             </a>
+             </div></div>
+         <div class="mb-32 group/section scroll-mt-24" id="api">
+            <div class="flex items-center justify-between mb-8 border-b border-neutral-900 pb-4">
+                <h3 class="text-xl font-mono uppercase tracking-widest text-neutral-400 flex items-center gap-2">
+                    // api
+                </h3>
+                <button id="btn-api" onclick="window.toggleGroup('api')" class="text-xs uppercase tracking-widest hover:text-white transition">Show Less</button>
+            </div>
+            
+            <div id="api" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 transition-all duration-500 foldable-content" style="max-height: 2000px; opacity: 1;">
+         
+             <a href="/projects/openrouter.html" class="glass-card block p-8 rounded-3xl relative overflow-hidden group reveal-stagger hover:scale-[1.02] transition-transform duration-500">
+                <div class="flex justify-between items-start mb-6">
+                     <img src="/logo.png" class="w-12 h-12 rounded-xl object-cover bg-neutral-900 shadow-lg group-hover:shadow-white/10 transition-all">
+                     <svg class="w-6 h-6 text-neutral-700 group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </div>
+                <h4 class="text-2xl font-bold mb-2 group-hover:text-white transition-colors tracking-tight">OpenRouter</h4>
+                <p class="text-neutral-500 text-sm leading-relaxed mb-6 line-clamp-2 h-10">Unified API gateway that gives developers access to hundreds of LLMs and multimodal models through a single endpoint</p>
+                
+                <div class="flex items-center justify-between border-t border-white/5 pt-4">
+                    <span class="text-xs font-mono text-neutral-600">By Community</span>
+                    <div class="flex -space-x-2 opacity-50 group-hover:opacity-100 transition-opacity">
+                         
+                    </div>
+                </div>
+             </a>
+             </div></div>
+         <div class="mb-32 group/section scroll-mt-24" id="llm">
+            <div class="flex items-center justify-between mb-8 border-b border-neutral-900 pb-4">
+                <h3 class="text-xl font-mono uppercase tracking-widest text-neutral-400 flex items-center gap-2">
+                    // llm
+                </h3>
+                <button id="btn-llm" onclick="window.toggleGroup('llm')" class="text-xs uppercase tracking-widest hover:text-white transition">Show Less</button>
+            </div>
+            
+            <div id="llm" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 transition-all duration-500 foldable-content" style="max-height: 2000px; opacity: 1;">
+         
+             <a href="/projects/openrouter.html" class="glass-card block p-8 rounded-3xl relative overflow-hidden group reveal-stagger hover:scale-[1.02] transition-transform duration-500">
+                <div class="flex justify-between items-start mb-6">
+                     <img src="/logo.png" class="w-12 h-12 rounded-xl object-cover bg-neutral-900 shadow-lg group-hover:shadow-white/10 transition-all">
+                     <svg class="w-6 h-6 text-neutral-700 group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </div>
+                <h4 class="text-2xl font-bold mb-2 group-hover:text-white transition-colors tracking-tight">OpenRouter</h4>
+                <p class="text-neutral-500 text-sm leading-relaxed mb-6 line-clamp-2 h-10">Unified API gateway that gives developers access to hundreds of LLMs and multimodal models through a single endpoint</p>
+                
+                <div class="flex items-center justify-between border-t border-white/5 pt-4">
+                    <span class="text-xs font-mono text-neutral-600">By Community</span>
+                    <div class="flex -space-x-2 opacity-50 group-hover:opacity-100 transition-opacity">
+                         
+                    </div>
+                </div>
+             </a>
+             </div></div>
+         <div class="mb-32 group/section scroll-mt-24" id="models">
+            <div class="flex items-center justify-between mb-8 border-b border-neutral-900 pb-4">
+                <h3 class="text-xl font-mono uppercase tracking-widest text-neutral-400 flex items-center gap-2">
+                    // models
+                </h3>
+                <button id="btn-models" onclick="window.toggleGroup('models')" class="text-xs uppercase tracking-widest hover:text-white transition">Show Less</button>
+            </div>
+            
+            <div id="models" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 transition-all duration-500 foldable-content" style="max-height: 2000px; opacity: 1;">
+         
+             <a href="/projects/openrouter.html" class="glass-card block p-8 rounded-3xl relative overflow-hidden group reveal-stagger hover:scale-[1.02] transition-transform duration-500">
+                <div class="flex justify-between items-start mb-6">
+                     <img src="/logo.png" class="w-12 h-12 rounded-xl object-cover bg-neutral-900 shadow-lg group-hover:shadow-white/10 transition-all">
+                     <svg class="w-6 h-6 text-neutral-700 group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </div>
+                <h4 class="text-2xl font-bold mb-2 group-hover:text-white transition-colors tracking-tight">OpenRouter</h4>
+                <p class="text-neutral-500 text-sm leading-relaxed mb-6 line-clamp-2 h-10">Unified API gateway that gives developers access to hundreds of LLMs and multimodal models through a single endpoint</p>
+                
+                <div class="flex items-center justify-between border-t border-white/5 pt-4">
+                    <span class="text-xs font-mono text-neutral-600">By Community</span>
+                    <div class="flex -space-x-2 opacity-50 group-hover:opacity-100 transition-opacity">
+                         
+                    </div>
+                </div>
+             </a>
+             </div></div>
+         <div class="mb-32 group/section scroll-mt-24" id="developer">
+            <div class="flex items-center justify-between mb-8 border-b border-neutral-900 pb-4">
+                <h3 class="text-xl font-mono uppercase tracking-widest text-neutral-400 flex items-center gap-2">
+                    // developer
+                </h3>
+                <button id="btn-developer" onclick="window.toggleGroup('developer')" class="text-xs uppercase tracking-widest hover:text-white transition">Show Less</button>
+            </div>
+            
+            <div id="developer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 transition-all duration-500 foldable-content" style="max-height: 2000px; opacity: 1;">
+         
+             <a href="/projects/openrouter.html" class="glass-card block p-8 rounded-3xl relative overflow-hidden group reveal-stagger hover:scale-[1.02] transition-transform duration-500">
+                <div class="flex justify-between items-start mb-6">
+                     <img src="/logo.png" class="w-12 h-12 rounded-xl object-cover bg-neutral-900 shadow-lg group-hover:shadow-white/10 transition-all">
+                     <svg class="w-6 h-6 text-neutral-700 group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </div>
+                <h4 class="text-2xl font-bold mb-2 group-hover:text-white transition-colors tracking-tight">OpenRouter</h4>
+                <p class="text-neutral-500 text-sm leading-relaxed mb-6 line-clamp-2 h-10">Unified API gateway that gives developers access to hundreds of LLMs and multimodal models through a single endpoint</p>
+                
+                <div class="flex items-center justify-between border-t border-white/5 pt-4">
+                    <span class="text-xs font-mono text-neutral-600">By Community</span>
+                    <div class="flex -space-x-2 opacity-50 group-hover:opacity-100 transition-opacity">
+                         
+                    </div>
+                </div>
+             </a>
+             </div></div>
+         <div class="mb-32 group/section scroll-mt-24" id="free">
+            <div class="flex items-center justify-between mb-8 border-b border-neutral-900 pb-4">
+                <h3 class="text-xl font-mono uppercase tracking-widest text-neutral-400 flex items-center gap-2">
+                    // free
+                </h3>
+                <button id="btn-free" onclick="window.toggleGroup('free')" class="text-xs uppercase tracking-widest hover:text-white transition">Show Less</button>
+            </div>
+            
+            <div id="free" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 transition-all duration-500 foldable-content" style="max-height: 2000px; opacity: 1;">
+         
+             <a href="/projects/openrouter.html" class="glass-card block p-8 rounded-3xl relative overflow-hidden group reveal-stagger hover:scale-[1.02] transition-transform duration-500">
+                <div class="flex justify-between items-start mb-6">
+                     <img src="/logo.png" class="w-12 h-12 rounded-xl object-cover bg-neutral-900 shadow-lg group-hover:shadow-white/10 transition-all">
+                     <svg class="w-6 h-6 text-neutral-700 group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </div>
+                <h4 class="text-2xl font-bold mb-2 group-hover:text-white transition-colors tracking-tight">OpenRouter</h4>
+                <p class="text-neutral-500 text-sm leading-relaxed mb-6 line-clamp-2 h-10">Unified API gateway that gives developers access to hundreds of LLMs and multimodal models through a single endpoint</p>
+                
+                <div class="flex items-center justify-between border-t border-white/5 pt-4">
+                    <span class="text-xs font-mono text-neutral-600">By Community</span>
+                    <div class="flex -space-x-2 opacity-50 group-hover:opacity-100 transition-opacity">
+                         
+                    </div>
+                </div>
+             </a>
+             </div></div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-20 border-t border-neutral-900 text-center">
+        <div class="font-bold text-2xl mb-4 tracking-tight">AWN_</div>
+        <div class="flex justify-center gap-6 mb-8 text-neutral-500 text-sm">
+            <a href="#" class="hover:text-white transition">About</a>
+            <a href="https://github.com/ghostshanky/allweneed.github.io" class="hover:text-white transition">GitHub</a>
+            <a href="/leaderboard.html" class="hover:text-white transition">Leaderboard</a>
+        </div>
+        <p class="text-neutral-600 text-xs font-mono">MIT License · Community Built</p>
+    </footer>
+
+</body>
+
+</html>
